@@ -12,25 +12,30 @@ import CreateProduct from './pages/product/productCreate';
 import EditProduct from './pages/product/productEdit';
 import ProductDetails from './pages/product/productDetails';
 import DeleteProduct from './pages/product/productDelete';
+import Login from './pages/auth/login';
+import PrivateRoute from './components/PrivateRoute';
 
 export default function App() {
-    return (
-      <BrowserRouter>
-       <Routes>
+  return (
+    <BrowserRouter>
+      <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<Login />} />
 
-        <Route path="/categories" element={<CategoriesPage />} />
-        <Route path="/categories/create" element={<CreateCategory />} />
-        <Route path="/categories/edit/:id" element={<EditCategory />} />
-        <Route path="/categories/:id" element={<CategoryDetails />} />
-        <Route path="/categories/delete/:id" element={<DeleteCategory />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="/categories" element={<CategoriesPage />} />
+          <Route path="/categories/create" element={<CreateCategory />} />
+          <Route path="/categories/edit/:id" element={<EditCategory />} />
+          <Route path="/categories/:id" element={<CategoryDetails />} />
+          <Route path="/categories/delete/:id" element={<DeleteCategory />} />
 
-        <Route path="/products" element={<ProductsPage />} />
-        <Route path="/products/create" element={<CreateProduct />} />
-        <Route path="/products/edit/:id" element={<EditProduct />} />
-        <Route path="/products/:id" element={<ProductDetails />} />
-        <Route path="/products/delete/:id" element={<DeleteProduct />} />
+          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/products/create" element={<CreateProduct />} />
+          <Route path="/products/edit/:id" element={<EditProduct />} />
+          <Route path="/products/:id" element={<ProductDetails />} />
+          <Route path="/products/delete/:id" element={<DeleteProduct />} />
+        </Route>
       </Routes>
-      </BrowserRouter>
-    );
-  }
+    </BrowserRouter>
+  );
+}

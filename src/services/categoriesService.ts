@@ -1,4 +1,4 @@
-import { CategoryRequest } from '../models/category/CategoriaRequest';
+import { CategoryRequest } from '../models/category/CategoryRequest';
 import { CategoryResponse } from '../models/category/CategoryResponse';
 import api from './apiService';
 
