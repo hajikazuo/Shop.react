@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import categoriesService from '../../services/categoriesService';
-import { Category } from '../../models/category/Category';
+import { CategoryResponse } from '../../models/category/CategoryResponse';
 import { Link } from 'react-router-dom';
 
 const CategoriesPage: React.FC = () => {
-  const [categories, setCategories] = useState<Category[]>([]);
+  const [categories, setCategories] = useState<CategoryResponse[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,7 +38,7 @@ const CategoriesPage: React.FC = () => {
               <td>
                 <Link to={`/categories/edit/${category.categoryId}`}>Edit</Link>
                 <Link to={`/categories/${category.categoryId}`}>Details</Link>
-                <Link to={`/categories/${category.categoryId}`}>Delete</Link>
+                <Link to={`/categories/delete/${category.categoryId}`}>Delete</Link>
               </td>
             </tr>
           ))}

@@ -9,6 +9,9 @@ const HomePage: React.FC = () => {
                 <li>
                     <Link to="/categories">Categories</Link>
                 </li>
+                <li>
+                    <Link to="/products">Products</Link>
+                </li>
             </ul>
         </div>
     );

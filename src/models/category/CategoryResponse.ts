@@ -1,4 +1,4 @@
-export interface Category {
+export interface CategoryResponse {
     categoryId: string;  
     name: string;
 }
