@@ -6,7 +6,6 @@ import CreateCategory from './pages/category/categoryCreate';
 import EditCategory from './pages/category/categoryEdit';
 import CategoryDetails from './pages/category/categoryDetails';
 import DeleteCategory from './pages/category/categoryDelete';
-
 import ProductsPage from './pages/product/products';
 import CreateProduct from './pages/product/productCreate';
 import EditProduct from './pages/product/productEdit';
@@ -14,26 +13,31 @@ import ProductDetails from './pages/product/productDetails';
 import DeleteProduct from './pages/product/productDelete';
 import Login from './pages/auth/login';
 import PrivateRoute from './components/PrivateRoute';
+import Layout from './components/layout/Layout';
+
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
+        <Route element={<Layout />}>
+          <Route path="/" element={<HomePage />} />
+          
+          <Route element={<PrivateRoute />}>
 
-        <Route element={<PrivateRoute />}>
-          <Route path="/categories" element={<CategoriesPage />} />
-          <Route path="/categories/create" element={<CreateCategory />} />
-          <Route path="/categories/edit/:id" element={<EditCategory />} />
-          <Route path="/categories/:id" element={<CategoryDetails />} />
-          <Route path="/categories/delete/:id" element={<DeleteCategory />} />
+            <Route path="/categories" element={<CategoriesPage />} />
+            <Route path="/categories/create" element={<CreateCategory />} />
+            <Route path="/categories/edit/:id" element={<EditCategory />} />
+            <Route path="/categories/:id" element={<CategoryDetails />} />
+            <Route path="/categories/delete/:id" element={<DeleteCategory />} />
 
-          <Route path="/products" element={<ProductsPage />} />
-          <Route path="/products/create" element={<CreateProduct />} />
-          <Route path="/products/edit/:id" element={<EditProduct />} />
-          <Route path="/products/:id" element={<ProductDetails />} />
-          <Route path="/products/delete/:id" element={<DeleteProduct />} />
+            <Route path="/products" element={<ProductsPage />} />
+            <Route path="/products/create" element={<CreateProduct />} />
+            <Route path="/products/edit/:id" element={<EditProduct />} />
+            <Route path="/products/:id" element={<ProductDetails />} />
+            <Route path="/products/delete/:id" element={<DeleteProduct />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>
